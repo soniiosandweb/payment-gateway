@@ -22,7 +22,7 @@ const RazorpayButton = ({ amount }) => {
           const paymentId = response.razorpay_payment_id;
 
           try {
-            const response = await fetch(`h${process.env.REACT_APP_API_URL}/razorpay-process`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/razorpay-process`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
