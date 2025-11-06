@@ -30,45 +30,43 @@ const GooglePayButtonComponent = ({ amount }) => {
   };
 
   return (
-    <div style={{ marginTop: "40px", textAlign: "center" }}>
-      <GooglePayButton
-        environment="TEST"
-        buttonColor="black"
-        buttonType="buy"
-        paymentRequest={{
-          apiVersion: 2,
-          apiVersionMinor: 0,
-          allowedPaymentMethods: [
-            {
-              type: "CARD",
+    <GooglePayButton
+      environment="TEST"
+      buttonColor="black"
+      buttonType="buy"
+      paymentRequest={{
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: [
+          {
+            type: "CARD",
+            parameters: {
+              allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+              allowedCardNetworks: ["MASTERCARD", "VISA"],
+            },
+            tokenizationSpecification: {
+              type: "PAYMENT_GATEWAY",
               parameters: {
-                allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-                allowedCardNetworks: ["MASTERCARD", "VISA"],
-              },
-              tokenizationSpecification: {
-                type: "PAYMENT_GATEWAY",
-                parameters: {
-                  gateway: "stripe",
-                  "stripe:version": "2020-08-27",
-                  "stripe:publishableKey": "pk_test_51PNSx7A2nuiqtZl37LIvC5AJQsJzg84hvRtbXSwIUk9u7KF827dUDUx3htyk2h0HKCmxYkpQQFx6gryUpEHJxetx00icrat2gT",
-                },
+                gateway: "stripe",
+                "stripe:version": "2020-08-27",
+                "stripe:publishableKey": "pk_test_51PNSx7A2nuiqtZl37LIvC5AJQsJzg84hvRtbXSwIUk9u7KF827dUDUx3htyk2h0HKCmxYkpQQFx6gryUpEHJxetx00icrat2gT",
               },
             },
-          ],
-          merchantInfo: {
-            merchantName: "My Demo Store",
           },
-          transactionInfo: {
-            totalPriceStatus: "FINAL",
-            totalPriceLabel: "Total",
-            totalPrice: amount.toString(),
-            currencyCode: "INR",
-            countryCode: "IN",
-          },
-        }}
-        onLoadPaymentData={handlePaymentData}
-      />
-    </div>
+        ],
+        merchantInfo: {
+          merchantName: "My Demo Store",
+        },
+        transactionInfo: {
+          totalPriceStatus: "FINAL",
+          totalPriceLabel: "Total",
+          totalPrice: amount.toString(),
+          currencyCode: "INR",
+          countryCode: "IN",
+        },
+      }}
+      onLoadPaymentData={handlePaymentData}
+    />
   );
 };
 

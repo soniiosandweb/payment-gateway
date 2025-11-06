@@ -53,11 +53,9 @@ const RazorpayButton = ({ amount }) => {
   };
 
   return (
-    <div style={{ marginTop: "40px", textAlign: "center" }}>
-      <button onClick={handlePayment} style={{backgroundColor: "#cdcdcd", color: "black", padding: "11px 30px", cursor: "pointer", borderWidth: "1px 1px 1px 1px", borderColor: "black", borderStyle: "solid", borderRadius: "4px", display: "flex", alignItems: "center", margin: "auto"}}>
-        Buy with <img src={razorPayIcon} alt="RazorPay" style={{height: "20px", marginLeft: "10px"}} />
-      </button>
-    </div>
+    <button onClick={handlePayment} className="button" style={{backgroundColor: "#cdcdcd", color: "black", borderColor: "black"}}>
+      Buy with <img src={razorPayIcon} alt="RazorPay" style={{height: "18px", marginLeft: "10px"}} />
+    </button>
   );
 };
 

@@ -25,11 +25,9 @@ const PhonePayButton = ({ amount }) => {
     };
 
     return(
-        <div style={{ marginTop: "40px", textAlign: "center" }}>
-            <button onClick={handlePay} style={{backgroundColor: "#663399", color: "white", padding: "11px 30px", cursor: "pointer", borderWidth: "1px 1px 1px 1px", borderColor: "black", borderStyle: "solid", borderRadius: "4px"}}>
-                Buy with Phone Pay
-            </button>
-        </div>
+        <button onClick={handlePay} className="button" style={{backgroundColor: "#663399", color: "white", borderColor: "black"}}>
+            Buy with Phone Pay
+        </button>
     )
 }
 
